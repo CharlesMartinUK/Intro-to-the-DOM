@@ -6,6 +6,53 @@
 			Password Tester
 		</title>
 	
+			<style>
+	
+	
+				progress {
+				  
+				  -webkit-appearance: none;
+				  margin-left: 8px;
+				  height: 8px;
+				}
+	
+				/* For Firefox */
+				progress::-moz-progress-bar {
+					background: green;
+				}
+		  
+				/* For Chrome or Safari */
+				progress::-webkit-progress-value {
+					background: green;
+				}
+		  
+				/* For IE10 */
+				progress {
+					background: green;
+				}
+	
+	
+				/* For Firefox */
+				.progress-red::-moz-progress-bar {
+					background: red;
+				}
+		  
+				/* For Chrome or Safari */
+				.progress-red::-webkit-progress-value {
+					background: red;
+				}
+		  
+				/* For IE10 */
+				.progress-red {
+					background: red;
+				}
+				
+	
+				
+	
+
+			</style>
+	
 		<script>
 	
 				
@@ -15,7 +62,19 @@
 				
 				var input =document.getElementById("password")
 				//console.log(input.value)
-				document.getElementById("progress").value = input.value.length * 5
+				var prog = document.getElementById("progress")
+				
+				prog.value = input.value.length * 5
+				
+				if(input.value.length < 8) {
+					//prog.style.background="red"
+					prog.classList.add("progress-red")
+				}
+				else {
+				console.log("over 5")
+					prog.classList.remove("progress-red")
+				}
+				
 			}
 		
 		
