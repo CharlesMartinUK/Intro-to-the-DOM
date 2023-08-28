@@ -48,6 +48,21 @@
 				}
 				
 	
+				/* For Firefox */
+				.progress-orange::-moz-progress-bar {
+					background: orange;
+				}
+		  
+				/* For Chrome or Safari */
+				.progress-orange::-webkit-progress-value {
+					background: orange;
+				}
+		  
+				/* For IE10 */
+				.progress-orange {
+					background: orange;
+				}
+	
 				
 	
 
@@ -64,15 +79,30 @@
 				//console.log(input.value)
 				var prog = document.getElementById("progress")
 				
+				var msg = document.getElementById("message")
+				
 				prog.value = input.value.length * 5
+				
+				// get rid incase have been set
+				prog.classList.remove("progress-red")
+				prog.classList.remove("progress-orange")
+				msg.textContent = ""
 				
 				if(input.value.length < 8) {
 					//prog.style.background="red"
 					prog.classList.add("progress-red")
+					msg.textContent = "Should be longer"
 				}
+				
+				else if(input.value.length < 12) {
+					prog.classList.add("progress-orange")
+					msg.textContent = "Pretty good"
+				}
+				
 				else {
-				console.log("over 5")
-					prog.classList.remove("progress-red")
+					//console.log("over 5")
+					
+					//msg.textContent = ""
 				}
 				
 			}
@@ -87,6 +117,7 @@
 		<h1>HOW GOOD IS YOUR PASSWORD?</h1>
 		<input id="password" type="password" oninput="change()"> <br>
 		<progress id="progress" max="100" value="0">0%</progress>
+		<p id="message"></p>
 		
 	</body>
 
