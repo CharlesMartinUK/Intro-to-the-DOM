@@ -1,0 +1,34 @@
+<html>
+
+	<head>
+	
+		<title>
+			Password Tester
+		</title>
+	
+		<script>
+	
+				
+			function change() {
+			
+				//console.log("changing")
+				
+				var input =document.getElementById("password")
+				//console.log(input.value)
+				document.getElementById("progress").value = input.value.length * 5
+			}
+		
+		
+		</script>
+	
+	</head>
+
+
+	<body >
+		<h1>HOW GOOD IS YOUR PASSWORD?</h1>
+		<input id="password" type="password" oninput="change()"> <br>
+		<progress id="progress" max="100" value="0">0%</progress>
+		
+	</body>
+
+</html>
